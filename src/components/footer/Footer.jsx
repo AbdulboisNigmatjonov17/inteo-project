@@ -1,39 +1,53 @@
 "use client"
 import { FacebookOutlined, Instagram, Twitter, YouTube } from '@mui/icons-material'
 import React from 'react'
+import Line from '../line/Line'
+
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css"; // AOS CSS faylini import qilish
 
 export default function Footer() {
+    useEffect(() => {
+        AOS.init({
+            duration: 1000, // Animatsiya davomiyligi (ms)
+            offset: 100, // Scroll boshlangan joydan necha px pastga kelganda ishlashi
+            once: false, // Bir marta ishga tushishi
+        });
+    }, []);
+
+
     return (
-        <footer className='Container mt-10'>
+        <footer className='Container'>
             <hr />
-            <div className='w-full flex justify-between'>
-                <div className='w-[590px] '>
-                    <h1>Kick-start your dream home with us</h1>
-                    <h1>Send us a hi</h1>
+            <div className='my-10 w-full flex justify-between'>
+                <div data-aos="fade-right" className='w-[590px] '>
+                    <h1 className='text-[48px] font-normal leading-[60px] text-[#2C2C2C]'>Kick-start your dream home with us</h1>
+                    <h2 className='text-[#996830] italic text-[48px] leading-[60px] underline decoration-[1px] underline-offset-4'>Send us a hi</h2>
                 </div>
-                <div className='w-[280px]'>
+                <div data-aos="fade-left" className='w-[280px] flex flex-col gap-8'>
                     <div>
-                        <h2>Brooklyn, New York</h2>
-                        <h4>962 Fifth Avenue Str, 3rd Floor-Trump Building NY 10006, United State.</h4>
+                        <h2 className='font-normal text-2xl leading-8 text-[#2C2C2C]'>Brooklyn, New York</h2>
+                        <h4 className='text-[14px] font-light leading-6'>962 Fifth Avenue Str, 3rd Floor-Trump Building NY 10006, United State.</h4>
                     </div>
                     <div>
-                        <h3>Email us at</h3>
-                        <h2>hello@landify.design</h2>
+                        <h3 className='font-light text-sm leading-6 text-[#2C2C2C]'>Email us at</h3>
+                        <h2 className='text-[#996830] font-normal text-2xl leading-8'>hello@landify.design</h2>
                     </div>
                     <div>
-                        <h3>If you're hurry, quick call for us</h3>
-                        <h2>+8(663)125-08-59</h2>
+                        <h3 className='font-light text-sm leading-6 text-[#2C2C2C]'>If you're hurry, quick call for us</h3>
+                        <h2 className='text-[#996830] font-normal text-2xl leading-8'>+8(663)125-08-59</h2>
                     </div>
                 </div>
             </div>
             <hr />
-            <div className='w-full flex justify-between items-center'>
+            <div className='w-full my-10 flex justify-between items-center'>
                 <div>
-                    <h3>© 2022 Inteo - Award winning studio. Made with love by <span>Landify</span></h3>
+                    <h3 className='text-[#444444] font-light text-[16px] leading-6'>© 2022 Inteo - Award winning studio. Made with love by <span className='text-[#996830]'>Landify</span></h3>
                 </div>
-                <div className='flex items-center'>
+                <div className='flex items-center gap-6'>
                     <h3>CONNECT</h3>
-                    <div className='bg-[#444444] w-[64px] h-[1px]'></div>
+                    <Line color={'bg-[#444444]'} />
                     <div className='rounded-full w-[40px] h-[40px] border border-[#E6D8CC] text-[#996830] flex justify-center items-center'>
                         <Instagram />
                     </div>
