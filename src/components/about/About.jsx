@@ -86,7 +86,7 @@ export default function About() {
         //     </div>
 
         // </div>
-        <div id='about' className='max-w-[90%] mx-auto lg:Container min-h-[560px] flex lg:flex-row flex-col items-center lg:items-stretch justify-center lg:justify-between gap-10 lg:gap-0'>
+        <div id='about' className='max-w-[90%] mx-auto lg:max-w-[1440px] min-h-[560px] flex lg:flex-row flex-col items-center lg:items-stretch justify-center lg:justify-between gap-10 lg:gap-0'>
 
             {/* Matn qismi */}
             <div data-aos="fade-right"

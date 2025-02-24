@@ -32,11 +32,11 @@ export default function Statistics() {
 
     return (
         <div className='my-20'>
-            <div className="Container">
-                <div className='w-full flex justify-between'>
+            <div className="max-w-[90%] lg:max-w-[1440px] mx-auto">
+                <div className='w-full flex justify-center lg:justify-between'>
                     {
                         stsData.map((item) => (
-                            <div data-aos="flip-up" key={item.id} className='w-[385px] flex items-center text-left gap-5'>
+                            <div data-aos="flip-up" key={item.id} className='w-[385px] flex lg:flex-row flex-col items-start lg:items-center text-left gap-5'>
                                 <h1 className='font-normal text-[60px] leading-[72px] '>{item.content}</h1>
                                 <p className='w-[175px]'>{item.about}</p>
                             </div>

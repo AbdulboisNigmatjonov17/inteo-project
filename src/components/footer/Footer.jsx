@@ -20,7 +20,7 @@ export default function Footer() {
     return (
         <footer className='Container'>
             <hr />
-            <div className='my-10 w-full flex justify-between'>
+            <div className='my-10 lg:mx-0 mx-10 lg:gap-0 gap-5 w-full flex flex-wrap justify-between'>
                 <div data-aos="fade-right" className='w-[590px] '>
                     <h1 className='text-[48px] font-normal leading-[60px] text-[#2C2C2C]'>Kick-start your dream home with us</h1>
                     <h2 className='text-[#996830] italic text-[48px] leading-[60px] underline decoration-[1px] underline-offset-4'>Send us a hi</h2>
@@ -41,7 +41,7 @@ export default function Footer() {
                 </div>
             </div>
             <hr />
-            <div className='w-full my-10 flex justify-between items-center'>
+            <div className='w-full my-10 lg:mx-0 mx-10 lg:gap-0 gap-5 flex flex-wrap justify-between items-center'>
                 <div>
                     <h3 className='text-[#444444] font-light text-[16px] leading-6'>© 2022 Inteo - Award winning studio. Made with love by <span className='text-[#996830]'>Landify</span></h3>
                 </div>

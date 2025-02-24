@@ -37,8 +37,8 @@ export default function Works() {
 
 
     return (
-        <div id='works' className='Container flex justify-between gap-8 py-10'>
-            <div className='w-[590px] flex flex-col justify-between items-start'>
+        <div id='works' className='max-w-[1440px] mx-auto flex flex-wrap justify-between gap-8 py-10 lg:px-0 px-10'>
+            <div className='lg:w-[590px] w-full flex flex-col justify-between lg:gap-0 gap-5 items-start'>
                 <div className='flex gap-5 items-center'>
                     <Line color={'bg-[#996830]'} />
                     <h4 className='text-[#996830]'>RECENT WORKS</h4>
@@ -51,10 +51,11 @@ export default function Works() {
                 </div>
                 <Button />
             </div>
-            <div className='w-[480px] flex flex-col gap-20'>
+            <div className='lg:w-[480px] w-full flex flex-col gap-20'>
                 <div data-aos="flip-right"
                     data-aos-easing="ease-out-cubic"
-                    data-aos-duration="2000" >
+                    data-aos-duration="2000" 
+                    className='w-full flex justify-center'>
                     <ServiceCard data={smTopCardData} />
                 </div>
                 <div data-aos="flip-right"

@@ -13,7 +13,7 @@ export default function ServiceCard({ img, title }) {
         }, []);
     
     return (
-        <div data-aos="zoom-in-up" className='my-20 w-[385px] h-[415px] flex flex-col justify-between p-10 border border-[#E6D8CC] rounded-sm'>
+        <div data-aos="zoom-in-up" className='my-20 lg:w-[385px] w-full h-[415px] flex flex-col justify-between p-10 border border-[#E6D8CC] rounded-sm'>
             <div>
                 <img src={img} alt={`${img}-`+ `${title}`} />
             </div>
