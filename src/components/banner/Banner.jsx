@@ -4,8 +4,8 @@ import Line from '../line/Line'
 
 export default function Banner() {
     return (
-        <div className='mb-40'>
-            <div className='h-[640px] relative  '>
+        <div className='mb-40 w-full'>
+            <div className='h-[640px] relative '>
                 <img src='/hero-image.png' alt="home-img" className='w-full h-full object-cover' loading='lazy' />
                 <div className='absolute -top-16 left-40'>
                     <img src="/CTAButton.png" alt="CTAButton" />

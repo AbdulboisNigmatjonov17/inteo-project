@@ -1,4 +1,5 @@
 "use client"
+
 import { useState } from "react";
 import { Menu } from "@mui/icons-material";
 import { Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material";
@@ -45,44 +46,40 @@ export default function Navbar() {
                 </Link>
             </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center gap-6">
-                <button onClick={() => scrollToSection("about")} className="cursor-pointer hover:text-blue-500 transition">
-                    About
-                </button>
-                <button onClick={() => scrollToSection("services")} className="cursor-pointer hover:text-blue-500 transition">
-                    Services
-                </button>
-                <button onClick={() => scrollToSection("works")} className="cursor-pointer hover:text-blue-500 transition">
-                    Our Work
-                </button>
-
-                {/* Mobile Menu Button */}
-                <div className="md:hidden">
+            <div className='flex items-center gap-2'>
+                {/* Mobil menyu faqat sm ekranlarda ishlaydi */}
+                <div className='sm:hidden'>
                     <IconButton onClick={() => setOpen(true)}>
                         <Menu />
                     </IconButton>
                 </div>
 
+                {/* Desktop menyu */}
+                <ul className='hidden sm:flex gap-4 md:flex'>
+                    <button onClick={() => scrollToSection("about")} className="cursor-pointer">
+                        <li>About</li>
+                    </button>
+                    <button onClick={() => scrollToSection("services")} className="cursor-pointer">
+                        <li>Services</li>
+                    </button>
+                    <button onClick={() => scrollToSection("works")} className="cursor-pointer">
+                        <li>Our work</li>
+                    </button>
+                </ul>
                 <Button />
             </div>
 
-
-
             {/* Mobile Drawer Menu */}
             <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-                <List className="w-[250px]">
-                    <ListItem button onClick={() => { scrollToSection("about"); setOpen(false); }}>
+                <List className="w-[200px]">
+                    <ListItem component="button" onClick={() => { scrollToSection("about"); setOpen(false); }}>
                         <ListItemText primary="About" />
                     </ListItem>
-                    <ListItem button onClick={() => { scrollToSection("services"); setOpen(false); }}>
+                    <ListItem component="button" onClick={() => { scrollToSection("services"); setOpen(false); }}>
                         <ListItemText primary="Services" />
                     </ListItem>
-                    <ListItem button onClick={() => { scrollToSection("works"); setOpen(false); }}>
+                    <ListItem component="button" onClick={() => { scrollToSection("works"); setOpen(false); }}>
                         <ListItemText primary="Our Work" />
-                    </ListItem>
-                    <ListItem button onClick={() => setOpen(false)}>
-                        <ListItemText primary="Support" />
                     </ListItem>
                 </List>
             </Drawer>
