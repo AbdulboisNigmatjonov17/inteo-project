@@ -1,18 +1,12 @@
 "use client"
-import Link from 'next/link'
-import React from 'react'
-import Button from '../button/Button'
+import { useState } from "react";
+import { Menu } from "@mui/icons-material";
+import { Drawer, IconButton, List, ListItem, ListItemText } from "@mui/material";
+import Link from "next/link";
+import Button from "../button/Button";
 
 export default function Navbar() {
-    // const scrollToSection = (id) => {
-    //     const element = document.getElementById(id);
-    //     if (element) {
-    //         window.scrollTo({
-    //             top: element.offsetTop,
-    //             behavior: "smooth",
-    //         });
-    //     }
-    // };
+    const [open, setOpen] = useState(false);
 
     const scrollToSection = (id) => {
         const element = document.getElementById(id);
@@ -21,7 +15,7 @@ export default function Navbar() {
         const targetPosition = element.offsetTop;
         const startPosition = window.scrollY;
         const distance = targetPosition - startPosition;
-        const duration = 1000; // 1.5 sekund
+        const duration = 800; // 0.8 sekund
         let startTime = null;
 
         function animation(currentTime) {
@@ -42,28 +36,56 @@ export default function Navbar() {
         requestAnimationFrame(animation);
     };
 
-
     return (
-        <nav className='Container h-[10dvh] px-5 flex justify-between items-center'>
+        <nav className="fixed top-0 w-full h-[10dvh] px-6 sm:px-10 flex justify-between items-center z-50 bg-white shadow-md">
+            {/* Logo */}
             <div>
-                <Link href={'/'}>
-                    <img src='/Logo.svg' alt="inteo" />
+                <Link href={"/"}>
+                    <img src="/Logo.svg" alt="inteo" className="h-10" />
                 </Link>
             </div>
-            <div className='flex items-center gap-4'>
-                <ul className='flex gap-4'>
-                    <button onClick={() => scrollToSection("about")} className="cursor-pointer">
-                        <li>About</li>
-                    </button>
-                    <button onClick={() => scrollToSection("services")} className="cursor-pointer">
-                        <li>Services</li>
-                    </button>
-                    <button onClick={() => scrollToSection("works")} className="cursor-pointer">
-                        <li>Our work</li>
-                    </button>
-                </ul>
+
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center gap-6">
+                <button onClick={() => scrollToSection("about")} className="cursor-pointer hover:text-blue-500 transition">
+                    About
+                </button>
+                <button onClick={() => scrollToSection("services")} className="cursor-pointer hover:text-blue-500 transition">
+                    Services
+                </button>
+                <button onClick={() => scrollToSection("works")} className="cursor-pointer hover:text-blue-500 transition">
+                    Our Work
+                </button>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden">
+                    <IconButton onClick={() => setOpen(true)}>
+                        <Menu />
+                    </IconButton>
+                </div>
+
                 <Button />
             </div>
+
+
+
+            {/* Mobile Drawer Menu */}
+            <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+                <List className="w-[250px]">
+                    <ListItem button onClick={() => { scrollToSection("about"); setOpen(false); }}>
+                        <ListItemText primary="About" />
+                    </ListItem>
+                    <ListItem button onClick={() => { scrollToSection("services"); setOpen(false); }}>
+                        <ListItemText primary="Services" />
+                    </ListItem>
+                    <ListItem button onClick={() => { scrollToSection("works"); setOpen(false); }}>
+                        <ListItemText primary="Our Work" />
+                    </ListItem>
+                    <ListItem button onClick={() => setOpen(false)}>
+                        <ListItemText primary="Support" />
+                    </ListItem>
+                </List>
+            </Drawer>
         </nav>
-    )
+    );
 }
