@@ -5,7 +5,7 @@ import ServiceCard from './WorksCard'
 
 import { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // AOS CSS faylini import qilish
+import "aos/dist/aos.css"; 
 
 export default function Works() {
     const bigCardData = {
@@ -29,9 +29,9 @@ export default function Works() {
 
     useEffect(() => {
         AOS.init({
-            duration: 1000, // Animatsiya davomiyligi (ms)
-            offset: 100, // Scroll boshlangan joydan necha px pastga kelganda ishlashi
-            once: false, // Bir marta ishga tushishi
+            duration: 1000,
+            offset: 100,
+            once: false,
         });
     }, []);
 

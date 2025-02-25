@@ -39,7 +39,7 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 w-full h-[10dvh] px-6 sm:px-10 flex justify-between items-center z-50 bg-white shadow-md">
-            {/* Logo */}
+
             <div>
                 <Link href={"/"}>
                     <img src="/Logo.svg" alt="inteo" className="h-10" />
@@ -47,14 +47,12 @@ export default function Navbar() {
             </div>
 
             <div className='flex items-center gap-2'>
-                {/* Mobil menyu faqat sm ekranlarda ishlaydi */}
                 <div className='sm:hidden'>
                     <IconButton onClick={() => setOpen(true)}>
                         <Menu />
                     </IconButton>
                 </div>
 
-                {/* Desktop menyu */}
                 <ul className='hidden sm:flex gap-4 md:flex'>
                     <button onClick={() => scrollToSection("about")} className="cursor-pointer">
                         <li>About</li>
@@ -69,7 +67,6 @@ export default function Navbar() {
                 <Button />
             </div>
 
-            {/* Mobile Drawer Menu */}
             <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
                 <List className="w-[200px]">
                     <ListItem component="button" onClick={() => { scrollToSection("about"); setOpen(false); }}>
